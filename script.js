@@ -17,7 +17,7 @@ let playable = true;
 const correctLetters = [];
 const wrongLetters = [];
 
-// Show hidden word
+
 function displayWord() {
 	wordEl.innerHTML = `
     ${selectedWord
@@ -42,15 +42,15 @@ function displayWord() {
 	}
 }
 
-// Update the wrong letters
+
 function updateWrongLettersEl() {
-	// Display wrong letters
+	
 	wrongLettersEl.innerHTML = `
     ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
     ${wrongLetters.map(letter => `<span>${letter}</span>`)}
   `;
 
-	// Display parts
+	
 	figureParts.forEach((part, index) => {
 		const errors = wrongLetters.length;
 
@@ -61,7 +61,7 @@ function updateWrongLettersEl() {
 		}
 	});
 
-	// Check if lost
+	
 	if (wrongLetters.length === figureParts.length) {
 		finalMessage.innerText = 'Unfortunately you lost. 😕';
 		finalMessageRevealWord.innerText = `...the word was: ${selectedWord}`;
@@ -71,7 +71,7 @@ function updateWrongLettersEl() {
 	}
 }
 
-// Show notification
+
 function showNotification() {
 	notification.classList.add('show');
 
@@ -80,7 +80,7 @@ function showNotification() {
 	}, 2000);
 }
 
-// Keydown letter press
+
 window.addEventListener('keydown', e => {
 	if (playable) {
 		if (e.keyCode >= 65 && e.keyCode <= 90) {
@@ -107,11 +107,11 @@ window.addEventListener('keydown', e => {
 	}
 });
 
-// Restart game and play again
+
 playAgainBtn.addEventListener('click', () => {
 	playable = true;
 
-	//  Empty arrays
+
 	correctLetters.splice(0);
 	wrongLetters.splice(0);
 
